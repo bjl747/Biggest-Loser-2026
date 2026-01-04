@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 16.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d7378; -webkit-text-stroke: #6d7378}
+    span.s1 {font-kerning: none; background-color: #171818}
+    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171818; -webkit-text-stroke: 0px #8cd3fe}
+    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171818; -webkit-text-stroke: 0px #6d6d6d}
+    span.s4 {font-kerning: none; color: #cacaca; background-color: #171818; -webkit-text-stroke: 0px #cacaca}
+    span.s5 {font-kerning: none; color: #c27e65; background-color: #171818; -webkit-text-stroke: 0px #c27e65}
+    span.s6 {font-kerning: none; color: #4689cc; background-color: #171818; -webkit-text-stroke: 0px #4689cc}
+    span.s7 {font-kerning: none}
+    span.s8 {font-kerning: none; color: #d4d4d4; background-color: #171818; -webkit-text-stroke: 0px #d4d4d4}
+    span.s9 {font-kerning: none; color: #a7c598; background-color: #171818; -webkit-text-stroke: 0px #a7c598}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">The Biggest Loser Competition</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Tailwind CSS --&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- React &amp; ReactDOM --&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">crossorigin</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react@18/umd/react.development.js"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">crossorigin</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react-dom@18/umd/react-dom.development.js"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Babel for JSX --&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/@babel/standalone/babel.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
+<p class="p6"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Custom scrollbar for table */</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">::-webkit-scrollbar</span><span class="s4"> </span><span class="s8">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">8px</span><span class="s8">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">8px</span><span class="s8">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s8">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">::-webkit-scrollbar-track</span><span class="s4"> </span><span class="s8">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> #1e1e1e</span><span class="s8">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s8">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">::-webkit-scrollbar-thumb</span><span class="s4"> </span><span class="s8">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> #333</span><span class="s8">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s9">4px</span><span class="s8">;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s8">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">::-webkit-scrollbar-thumb:hover</span><span class="s4"> </span><span class="s8">{</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> #4F2683</span><span class="s8">;</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s8">}</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-[#121212] text-white font-sans selection:bg-purple-500"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"root"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"text/babel"</span><span class="s4"> </span><span class="s2">data-type</span><span class="s3">=</span><span class="s1">"module"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>import {<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>getFirestore,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>collection,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>doc,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>onSnapshot,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>updateDoc,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>addDoc,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>deleteDoc<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>} from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>import {<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>getAuth,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>signInAnonymously,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>signInWithCustomToken,<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>onAuthStateChanged<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>} from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const { useState, useEffect, useMemo } = React;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>// --- Icons (SVG Components) ---</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Trophy = ({ size = 24, className = "" }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}&gt;&lt;path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/&gt;&lt;path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/&gt;&lt;path d="M4 22h16"/&gt;&lt;path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/&gt;&lt;path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/&gt;&lt;path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/&gt;&lt;/svg&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Users = ({ size = 24, className = "" }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}&gt;&lt;path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/&gt;&lt;circle cx="9" cy="7" r="4"/&gt;&lt;path d="M22 21v-2a4 4 0 0 0-3-3.87"/&gt;&lt;path d="M16 3.13a4 4 0 0 1 0 7.75"/&gt;&lt;/svg&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Settings = ({ size = 24, className = "" }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}&gt;&lt;path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.47a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.39a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/&gt;&lt;circle cx="12" cy="12" r="3"/&gt;&lt;/svg&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Plus = ({ size = 24, className = "" }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}&gt;&lt;path d="M5 12h14"/&gt;&lt;path d="M12 5v14"/&gt;&lt;/svg&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Trash2 = ({ size = 24, className = "" }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}&gt;&lt;path d="M3 6h18"/&gt;&lt;path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/&gt;&lt;path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/&gt;&lt;line x1="10" x2="10" y1="11" y2="17"/&gt;&lt;line x1="14" x2="14" y1="11" y2="17"/&gt;&lt;/svg&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Lock = ({ size = 24, className = "" }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}&gt;&lt;rect width="18" height="11" x="3" y="11" rx="2" ry="2"/&gt;&lt;path d="M7 11V7a5 5 0 0 1 10 0v4"/&gt;&lt;/svg&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const Medal = ({ size = 24, className = "" }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}&gt;&lt;path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/&gt;&lt;path d="M11 12 5.12 2.2"/&gt;&lt;path d="m13 12 5.88-9.8"/&gt;&lt;path d="M8 7h8"/&gt;&lt;circle cx="12" cy="17" r="5"/&gt;&lt;path d="M12 18v-2h-.5"/&gt;&lt;/svg&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>// --- Firebase Configuration ---</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const firebaseConfig = {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>apiKey: "AIzaSyBjVON0n9Xd5MBYE8hkMSjWvdjShgRse9A",</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>authDomain: "biggest-loser-weight-loss-comp.firebaseapp.com",</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>projectId: "biggest-loser-weight-loss-comp",</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>storageBucket: "biggest-loser-weight-loss-comp.firebasestorage.app",</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>messagingSenderId: "634259910514",</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>appId: "1:634259910514:web:948cd1ef92ba75d5a5b7eb"</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>// Initialize Firebase</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const app = initializeApp(firebaseConfig);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const auth = getAuth(app);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const db = getFirestore(app);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const artifactId = 'biggest-loser-competition-v1';</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>// --- Constants ---</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const ADMIN_PASSWORD = "tabithaishot";</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>function App() {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [user, setUser] = useState(null);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [players, setPlayers] = useState([]);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [activeTab, setActiveTab] = useState('standings');</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [isAdmin, setIsAdmin] = useState(false);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [adminPassInput, setAdminPassInput] = useState('');</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [loading, setLoading] = useState(true);</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>// Auth Logic</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>useEffect(() =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const initAuth = async () =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>try {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>let attempt = 0;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>const performSignIn = async () =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>try {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>await signInAnonymously(auth);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>} catch (err) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>if (attempt &lt; 3) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>attempt++;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>await new Promise(resolve =&gt; setTimeout(resolve, 1000 * attempt));</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>return performSignIn();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>throw err;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>};</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>await performSignIn();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>} catch (err) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>console.error("Auth error:", err);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>setLoading(false);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>};</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>initAuth();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const unsubscribe = onAuthStateChanged(auth, (u) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>setUser(u);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>if (!u) initAuth();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>return () =&gt; unsubscribe();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>}, []);</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>// Firestore Sync</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>useEffect(() =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (!user) return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const q = collection(db, 'artifacts', artifactId, 'public', 'data', 'players');</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const unsubscribe = onSnapshot(q, (snapshot) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>const pData = snapshot.docs.map(doc =&gt; ({ id: doc.id, ...doc.data() }));</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>setPlayers(pData);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>setLoading(false);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}, (error) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>console.error("Firestore error:", error);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>setLoading(false);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>return () =&gt; unsubscribe();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>}, [user]);</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>// Calculations</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const calculateStats = (player) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const startWeight = parseFloat(player.startingWeight) || 0;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const weights = player.weeklyWeights || {};</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>let currentWeight = startWeight;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= 12; i++) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>if (weights[i] !== undefined &amp;&amp; weights[i] !== null &amp;&amp; weights[i] !== '') {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>currentWeight = parseFloat(weights[i]);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const totalLbsLost = startWeight - currentWeight;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const totalPctLost = startWeight &gt; 0 ? (totalLbsLost / startWeight) * 100 : 0;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>return { currentWeight, totalLbsLost, totalPctLost };</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const sortedPlayers = useMemo(() =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>return [...players].map(p =&gt; ({ ...p, stats: calculateStats(p) }))</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>.sort((a, b) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>if (b.stats.totalPctLost !== a.stats.totalPctLost) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>return b.stats.totalPctLost - a.stats.totalPctLost;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>return b.stats.totalLbsLost - a.stats.totalLbsLost;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>}, [players]);</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const weeklyWinners = useMemo(() =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const winners = [];</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>for (let w = 1; w &lt;= 12; w++) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>let bestPct = -Infinity;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>let winner = null;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>let bestLbs = -Infinity;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>players.forEach(p =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>const weights = p.weeklyWeights || {};</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>const currentVal = weights[w];</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>if (currentVal === undefined || currentVal === null || currentVal === '') return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>const prevVal = w === 1 ? p.startingWeight : weights[w - 1];</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>if (prevVal === undefined || prevVal === null || prevVal === '') return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>const lbsLost = prevVal - currentVal;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>const pctLost = (lbsLost / prevVal) * 100;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>if (pctLost &gt; bestPct || (pctLost === bestPct &amp;&amp; lbsLost &gt; bestLbs)) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>bestPct = pctLost;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>bestLbs = lbsLost;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>winner = { name: p.name, pct: pctLost };</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>if (winner) winners.push({ week: w, ...winner });</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>return winners;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>}, [players]);</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>// Handlers</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const handleAddPlayer = async (e) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>e.preventDefault();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (!user) return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const name = e.target.playerName.value;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const weight = e.target.startWeight.value;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (!name || !weight) return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>await addDoc(collection(db, 'artifacts', artifactId, 'public', 'data', 'players'), {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>name,</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>startingWeight: parseFloat(weight),</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>weeklyWeights: {},</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>createdAt: new Date().toISOString()</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>e.target.reset();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>} catch (err) { console.error("Add error:", err); }</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const handleUpdateWeight = async (playerId, week, value) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (!user) return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const playerRef = doc(db, 'artifacts', artifactId, 'public', 'data', 'players', playerId);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const weightVal = value === '' ? null : parseFloat(value);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>await updateDoc(playerRef, { [`weeklyWeights.${week}`]: weightVal });</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>} catch (err) { console.error("Update error:", err); }</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const handleDeletePlayer = async (id) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (!user) return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (!window.confirm("Delete participant?")) return;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>await deleteDoc(doc(db, 'artifacts', artifactId, 'public', 'data', 'players', id));</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>} catch (err) { console.error("Delete error:", err); }</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const checkAdmin = (e) =&gt; {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>e.preventDefault();</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (adminPassInput === ADMIN_PASSWORD) {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>setIsAdmin(true);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>setIsAdmin(false);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>const errorMsg = document.getElementById('login-error');</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>if (errorMsg) errorMsg.classList.remove('hidden');</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const TabButton = ({ id, label, icon: Icon }) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>onClick={() =&gt; { setActiveTab(id); if(id !== 'admin') setIsAdmin(false); }}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>className={`flex flex-1 flex-col items-center py-3 px-2 transition-all ${</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>activeTab === id<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>? 'text-white border-t-4 border-yellow-400 bg-opacity-10 bg-white'<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>: 'text-gray-400 hover:text-gray-200'</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>}`}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;Icon size={20} className="mb-1" /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span className="text-[10px] font-black uppercase tracking-widest"&gt;{label}&lt;/span&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>return (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-purple-500"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;header className="bg-[#4F2683] border-b-4 border-[#FFC62F] py-6 px-4 shadow-2xl sticky top-0 z-50"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div className="max-w-4xl mx-auto flex justify-between items-center"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h1 className="text-3xl font-black tracking-tighter uppercase leading-none"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>The Biggest &lt;span className="text-yellow-400"&gt;Loser&lt;/span&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/h1&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p className="text-[11px] uppercase font-bold tracking-[0.15em] text-gray-200 mt-1"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>12-Week Weight Loss Competition</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/p&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;Trophy className="text-yellow-400" size={32} /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/header&gt;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;main className="max-w-4xl mx-auto p-4 pb-24"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>{loading ? (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="flex flex-col items-center justify-center py-20"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400 mb-4"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p className="text-gray-400 font-bold uppercase tracking-widest"&gt;Loading Rankings...&lt;/p&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>) : (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>{activeTab === 'standings' &amp;&amp; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div className="bg-[#1e1e1e] rounded-xl overflow-hidden border border-white/5 shadow-xl"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="bg-[#4F2683]/40 p-4 border-b border-white/10 flex justify-between items-center"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;h2 className="font-black uppercase tracking-tight flex items-center gap-2"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;Users size={18} className="text-yellow-400" /&gt; Current Rankings</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/h2&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest"&gt;% Lost Only&lt;/span&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"><span class="Apple-converted-space">                                            </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="divide-y divide-white/5"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>{sortedPlayers.length &gt; 0 ? sortedPlayers.map((player, index) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div key={player.id} className="p-5 flex items-center gap-6 hover:bg-white/5 transition-colors"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-lg ${</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>index === 0 ? 'bg-yellow-400 text-purple-900 shadow-[0_0_15px_rgba(255,198,47,0.3)]' :<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>index === 1 ? 'bg-gray-300 text-gray-800' :<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>index === 2 ? 'bg-orange-600 text-white' : 'bg-white/10 text-gray-400 border border-white/10'</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>}`}&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>{index + 1}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;div className="flex-1"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;p className="font-black uppercase text-xl leading-tight tracking-tight"&gt;{player.name}&lt;/p&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;div className="text-right"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;div className="text-2xl font-black text-yellow-400 tabular-nums"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                </span>{player.stats.totalPctLost.toFixed(2)}%</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;div className="text-[9px] font-bold text-gray-500 uppercase tracking-widest"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                </span>PROGRESS</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>)) : (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div className="p-10 text-center text-gray-500 font-bold uppercase tracking-widest"&gt;Waiting for data...&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>)}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>)}</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>{activeTab === 'winners' &amp;&amp; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div className="bg-[#1e1e1e] rounded-xl overflow-hidden border border-white/5 shadow-xl"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="bg-[#4F2683]/40 p-4 border-b border-white/10"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;h2 className="font-black uppercase tracking-tight flex items-center gap-2"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;Medal size={18} className="text-yellow-400" /&gt; Weekly Achievement Board</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/h2&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>{weeklyWinners.length &gt; 0 ? weeklyWinners.map((w) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div key={w.week} className="bg-[#1e1e1e] p-4 flex items-center justify-between border-b border-white/5"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;div className="flex items-center gap-3"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;div className="bg-yellow-400 text-purple-900 font-black text-[10px] px-2 py-1 rounded uppercase"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                </span>Week {w.week}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;span className="font-black uppercase text-sm"&gt;{w.name}&lt;/span&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;div className="text-right"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;span className="text-yellow-400 font-black text-sm"&gt;+{w.pct.toFixed(2)}%&lt;/span&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>)) : (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div className="p-10 text-center text-gray-500 font-bold uppercase col-span-full tracking-widest"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>Weekly stats pending...</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>)}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>)}</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>{activeTab === 'admin' &amp;&amp; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>{!isAdmin ? (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="bg-[#1e1e1e] p-8 rounded-2xl border border-white/10 max-w-sm mx-auto text-center shadow-2xl"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;Lock className="mx-auto mb-4 text-purple-500" size={48} /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;h2 className="text-xl font-black uppercase mb-4"&gt;Admin Access&lt;/h2&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;form onSubmit={checkAdmin} className="space-y-4"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;input<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>type="password"</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>value={adminPassInput}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>onChange={(e) =&gt; setAdminPassInput(e.target.value)}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>placeholder="Enter Password"</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-center font-bold focus:ring-2 ring-purple-500 outline-none"</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>/&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;p id="login-error" className="text-red-500 text-xs font-bold uppercase hidden"&gt;Incorrect Password&lt;/p&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;button className="w-full bg-[#4F2683] hover:bg-purple-600 p-3 rounded-lg font-black uppercase transition-all shadow-lg tracking-widest"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>Login</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/button&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/form&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>) : (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="space-y-8"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;section className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 shadow-xl"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;h3 className="text-sm font-black uppercase text-gray-400 mb-4 tracking-widest flex items-center gap-2"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;Plus size={16} className="text-yellow-400" /&gt; New Participant</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/h3&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;form onSubmit={handleAddPlayer} className="flex flex-col md:flex-row gap-4"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;input name="playerName" placeholder="Full Name" className="flex-1 bg-black/50 border border-white/10 rounded-lg p-3 font-bold focus:ring-1 ring-purple-500 outline-none" required /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;input name="startWeight" type="number" step="0.1" placeholder="Start Weight (lbs)" className="w-full md:w-48 bg-black/50 border border-white/10 rounded-lg p-3 font-bold focus:ring-1 ring-purple-500 outline-none" required /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;button className="bg-yellow-400 text-purple-900 px-6 py-3 rounded-lg font-black uppercase hover:bg-yellow-300 transition-all tracking-widest"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>Save</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/button&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/form&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/section&gt;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;section className="bg-[#1e1e1e] rounded-xl overflow-hidden border border-white/10 shadow-xl"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div className="p-4 bg-white/5 flex justify-between items-center border-b border-white/10"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;h3 className="text-sm font-black uppercase text-gray-400 tracking-widest"&gt;Log Book&lt;/h3&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div className="overflow-x-auto"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;table className="w-full text-left border-collapse"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;thead&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                </span>&lt;tr className="bg-black/20 text-[10px] font-black uppercase text-gray-500 border-b border-white/5"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                    </span>&lt;th className="p-4 sticky left-0 bg-[#1e1e1e] z-10 min-w-[150px]"&gt;Participant&lt;/th&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                    </span>{[...Array(12)].map((_, i) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;th key={i} className="p-4 min-w-[80px] text-center"&gt;W{i+1}&lt;/th&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                    </span>))}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                    </span>&lt;th className="p-4 text-center"&gt;Del&lt;/th&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                </span>&lt;/tr&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;/thead&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;tbody className="divide-y divide-white/5"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                </span>{players.map((p) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                    </span>&lt;tr key={p.id} className="hover:bg-white/5 transition-colors group"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;td className="p-4 sticky left-0 bg-[#1e1e1e] font-black uppercase z-10 group-hover:bg-[#252525]"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                            </span>{p.name}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;span className="block text-[9px] text-gray-500"&gt;Base: {p.startingWeight}&lt;/span&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;/td&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                        </span>{[...Array(12)].map((_, i) =&gt; (</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;td key={i} className="p-2 text-center"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                </span>&lt;input<span class="Apple-converted-space"> </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                    </span>type="number"</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                    </span>step="0.1"</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                    </span>value={p.weeklyWeights?.[i + 1] ?? ''}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                    </span>onChange={(e) =&gt; handleUpdateWeight(p.id, i + 1, e.target.value)}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                    </span>className="w-14 bg-black/30 border border-white/5 rounded p-2 text-xs text-center font-bold text-yellow-400 focus:ring-1 ring-purple-500 outline-none"</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                </span>/&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;/td&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                        </span>))}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;td className="p-4 text-center"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;button onClick={() =&gt; handleDeletePlayer(p.id)} className="p-2 text-red-500 hover:bg-red-500/10 rounded-full transition-colors"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                                </span>&lt;Trash2 size={14} /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;/button&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;/td&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                    </span>&lt;/tr&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                                </span>))}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;/tbody&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/table&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/section&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>)}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>)}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>)}</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/main&gt;</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;nav className="fixed bottom-0 left-0 right-0 bg-[#4F2683] border-t-4 border-[#FFC62F] flex justify-between shadow-2xl z-50"&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;TabButton id="standings" label="Standings" icon={Users} /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;TabButton id="winners" label="Weekly Winners" icon={Trophy} /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;TabButton id="admin" label="Admin" icon={Settings} /&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/nav&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p5"><span class="s7"></span><br></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const root = ReactDOM.createRoot(document.getElementById('root'));</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>root.render(&lt;App /&gt;);</span></p>
+<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+</body>
+</html>
