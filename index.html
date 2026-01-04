@@ -164,8 +164,11 @@
                 
                 let currentWeight = startWeight;
                 for (let i = 1; i <= 12; i++) {
-                    if (weights[i] !== undefined && weights[i] !== null && weights[i] !== '') {
-                        currentWeight = parseFloat(weights[i]);
+                    const val = weights[i];
+                    // Skip 'X', empty, or null values for current weight calculation
+                    if (val !== undefined && val !== null && val !== '' && val !== 'X' && val !== 'x') {
+                        const parsed = parseFloat(val);
+                        if (!isNaN(parsed)) currentWeight = parsed;
                     }
                 }
 
@@ -193,10 +196,19 @@
 
                     players.forEach(p => {
                         const weights = p.weeklyWeights || {};
-                        const currentVal = weights[w];
-                        if (currentVal === undefined || currentVal === null || currentVal === '') return;
-                        const prevVal = w === 1 ? p.startingWeight : weights[w - 1];
-                        if (prevVal === undefined || prevVal === null || prevVal === '') return;
+                        const currentValRaw = weights[w];
+                        
+                        // Rule: If current week is X or missing, cannot win
+                        if (currentValRaw === undefined || currentValRaw === null || currentValRaw === '' || currentValRaw === 'X' || currentValRaw === 'x') return;
+                        const currentVal = parseFloat(currentValRaw);
+                        if (isNaN(currentVal)) return;
+
+                        // Rule: If previous week is X, cannot win the current week
+                        const prevValRaw = w === 1 ? p.startingWeight : weights[w - 1];
+                        if (prevValRaw === undefined || prevValRaw === null || prevValRaw === '' || prevValRaw === 'X' || prevValRaw === 'x') return;
+                        const prevVal = parseFloat(prevValRaw);
+                        if (isNaN(prevVal)) return;
+
                         const lbsLost = prevVal - currentVal;
                         const pctLost = (lbsLost / prevVal) * 100;
 
@@ -210,6 +222,43 @@
                 }
                 return winners;
             }, [players]);
+
+            // Projected Prize Calculations
+            const prizePool = useMemo(() => {
+                const playerCount = players.length;
+                if (playerCount === 0) return { first: 0, second: 0, third: 0 };
+
+                const entryFee = 40;
+                const totalCollected = playerCount * entryFee;
+                const weeklyReserve = 120; // 12 weeks * $10
+                
+                // Pot available after setting aside weekly prizes
+                const mainPot = totalCollected - weeklyReserve;
+
+                // Safety check if pot is too small (unlikely with entry fee, but good practice)
+                if (mainPot < 0) return { first: 0, second: 0, third: 0 };
+
+                const thirdPlacePrize = 40; // Money back
+                const remainingForTop2 = mainPot - thirdPlacePrize;
+
+                // If not enough for top 2 splits
+                if (remainingForTop2 <= 0) {
+                     return { first: 0, second: 0, third: Math.max(0, mainPot) };
+                }
+
+                const secondPlacePrize = remainingForTop2 * 0.25;
+                const firstPlacePrize = remainingForTop2 * 0.75;
+
+                return {
+                    first: firstPlacePrize,
+                    second: secondPlacePrize,
+                    third: thirdPlacePrize
+                };
+            }, [players.length]);
+
+            const formatMoney = (amount) => {
+                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+            };
 
             // Handlers
             const handleAddPlayer = async (e) => {
@@ -232,7 +281,18 @@
             const handleUpdateWeight = async (playerId, week, value) => {
                 if (!user) return;
                 const playerRef = doc(db, 'artifacts', artifactId, 'public', 'data', 'players', playerId);
-                const weightVal = value === '' ? null : parseFloat(value);
+                
+                // Handle 'X' or number
+                let weightVal = value;
+                if (value === '' || value === null) {
+                    weightVal = null;
+                } else if (value.trim().toUpperCase() === 'X') {
+                    weightVal = 'X';
+                } else {
+                    const parsed = parseFloat(value);
+                    weightVal = isNaN(parsed) ? value : parsed; // Store number if valid, else string (likely X typo or intentional)
+                }
+
                 try {
                     await updateDoc(playerRef, { [`weeklyWeights.${week}`]: weightVal });
                 } catch (err) { console.error("Update error:", err); }
@@ -321,7 +381,25 @@
                                                             {index + 1}
                                                         </div>
                                                         <div className="flex-1">
-                                                            <p className="font-black uppercase text-xl leading-tight tracking-tight">{player.name}</p>
+                                                            <div className="flex items-center gap-2">
+                                                                <p className="font-black uppercase text-xl leading-tight tracking-tight">{player.name}</p>
+                                                                {/* Prize Badges */}
+                                                                {index === 0 && (
+                                                                    <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded border border-green-500/30">
+                                                                        {formatMoney(prizePool.first)}
+                                                                    </span>
+                                                                )}
+                                                                {index === 1 && (
+                                                                    <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded border border-green-500/30">
+                                                                        {formatMoney(prizePool.second)}
+                                                                    </span>
+                                                                )}
+                                                                {index === 2 && (
+                                                                    <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded border border-green-500/30">
+                                                                        {formatMoney(prizePool.third)}
+                                                                    </span>
+                                                                )}
+                                                            </div>
                                                         </div>
                                                         <div className="text-right">
                                                             <div className="text-2xl font-black text-yellow-400 tabular-nums">
@@ -347,6 +425,9 @@
                                                 <h2 className="font-black uppercase tracking-tight flex items-center gap-2">
                                                     <Medal size={18} className="text-yellow-400" /> Weekly Achievement Board
                                                 </h2>
+                                                <p className="text-[10px] text-gray-300 mt-1 uppercase tracking-wider font-bold opacity-80 pl-6">
+                                                    Weekly winner wins $10 (Paid at end of contest)
+                                                </p>
                                             </div>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5">
                                                 {weeklyWinners.length > 0 ? weeklyWinners.map((w) => (
@@ -438,8 +519,7 @@
                                                                         {[...Array(12)].map((_, i) => (
                                                                             <td key={i} className="p-2 text-center">
                                                                                 <input 
-                                                                                    type="number"
-                                                                                    step="0.1"
+                                                                                    type="text"
                                                                                     value={p.weeklyWeights?.[i + 1] ?? ''}
                                                                                     onChange={(e) => handleUpdateWeight(p.id, i + 1, e.target.value)}
                                                                                     className="w-14 bg-black/30 border border-white/5 rounded p-2 text-xs text-center font-bold text-yellow-400 focus:ring-1 ring-purple-500 outline-none"
