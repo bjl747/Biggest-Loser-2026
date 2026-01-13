@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Biggest Loser Competition</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     
-    <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
@@ -78,9 +75,6 @@
         const Medal = ({ size = 24, className = "" }) => (
             <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></svg>
         );
-        const LogOut = ({ size = 24, className = "" }) => (
-            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
-        );
 
         // --- Firebase Configuration ---
         const firebaseConfig = {
@@ -105,8 +99,7 @@
             const [user, setUser] = useState(null);
             const [players, setPlayers] = useState([]);
             const [activeTab, setActiveTab] = useState('standings');
-            // Check localStorage for persisted admin state
-            const [isAdmin, setIsAdmin] = useState(() => localStorage.getItem('biggest_loser_admin') === 'true');
+            const [isAdmin, setIsAdmin] = useState(false);
             const [adminPassInput, setAdminPassInput] = useState('');
             const [loading, setLoading] = useState(true);
 
@@ -164,101 +157,63 @@
                 
                 let currentWeight = startWeight;
                 for (let i = 1; i <= 12; i++) {
-                    const val = weights[i];
-                    // Skip 'X', empty, or null values for current weight calculation
-                    if (val !== undefined && val !== null && val !== '' && val !== 'X' && val !== 'x') {
-                        const parsed = parseFloat(val);
-                        if (!isNaN(parsed)) currentWeight = parsed;
+                    if (weights[i] !== undefined && weights[i] !== null && weights[i] !== '') {
+                        currentWeight = parseFloat(weights[i]);
                     }
                 }
 
-                const totalLbsLost = startWeight - currentWeight;
-                const totalPctLost = startWeight > 0 ? (totalLbsLost / startWeight) * 100 : 0;
-                return { currentWeight, totalLbsLost, totalPctLost };
+                // CHANGED: Logic to reflect "change" so loss is negative
+                const weightChange = currentWeight - startWeight; 
+                // CHANGED: Formula is now (change / start) * 100 to get negative %
+                const totalPctChange = startWeight > 0 ? (weightChange / startWeight) * 100 : 0;
+                
+                return { currentWeight, weightChange, totalPctChange };
             };
 
             const sortedPlayers = useMemo(() => {
                 return [...players].map(p => ({ ...p, stats: calculateStats(p) }))
                     .sort((a, b) => {
-                        if (b.stats.totalPctLost !== a.stats.totalPctLost) {
-                            return b.stats.totalPctLost - a.stats.totalPctLost;
+                        // CHANGED: Sort ascending (lowest number/most negative is winner)
+                        if (a.stats.totalPctChange !== b.stats.totalPctChange) {
+                            return a.stats.totalPctChange - b.stats.totalPctChange;
                         }
-                        return b.stats.totalLbsLost - a.stats.totalLbsLost;
+                        return a.stats.weightChange - b.stats.weightChange;
                     });
             }, [players]);
 
             const weeklyWinners = useMemo(() => {
                 const winners = [];
                 for (let w = 1; w <= 12; w++) {
-                    let bestPct = -Infinity;
+                    // CHANGED: Initialize with Infinity to find the lowest (most negative) number
+                    let bestPct = Infinity; 
                     let winner = null;
-                    let bestLbs = -Infinity;
+                    let bestLbs = Infinity;
 
                     players.forEach(p => {
                         const weights = p.weeklyWeights || {};
-                        const currentValRaw = weights[w];
+                        const currentVal = weights[w];
+                        if (currentVal === undefined || currentVal === null || currentVal === '') return;
                         
-                        // Rule: If current week is X or missing, cannot win
-                        if (currentValRaw === undefined || currentValRaw === null || currentValRaw === '' || currentValRaw === 'X' || currentValRaw === 'x') return;
-                        const currentVal = parseFloat(currentValRaw);
-                        if (isNaN(currentVal)) return;
+                        // Use starting weight for week 1 calc, otherwise previous week
+                        const prevVal = w === 1 ? p.startingWeight : weights[w - 1];
+                        
+                        if (prevVal === undefined || prevVal === null || prevVal === '') return;
+                        
+                        // CHANGED: Logic to show change (Current - Prev)
+                        const lbsChange = currentVal - prevVal;
+                        const pctChange = (lbsChange / prevVal) * 100;
 
-                        // Rule: If previous week is X, cannot win the current week
-                        const prevValRaw = w === 1 ? p.startingWeight : weights[w - 1];
-                        if (prevValRaw === undefined || prevValRaw === null || prevValRaw === '' || prevValRaw === 'X' || prevValRaw === 'x') return;
-                        const prevVal = parseFloat(prevValRaw);
-                        if (isNaN(prevVal)) return;
-
-                        const lbsLost = prevVal - currentVal;
-                        const pctLost = (lbsLost / prevVal) * 100;
-
-                        if (pctLost > bestPct || (pctLost === bestPct && lbsLost > bestLbs)) {
-                            bestPct = pctLost;
-                            bestLbs = lbsLost;
-                            winner = { name: p.name, pct: pctLost };
+                        // CHANGED: Logic to find the LOWEST percentage (most weight lost)
+                        if (pctChange < bestPct || (pctChange === bestPct && lbsChange < bestLbs)) {
+                            bestPct = pctChange;
+                            bestLbs = lbsChange;
+                            winner = { name: p.name, pct: pctChange };
                         }
                     });
                     if (winner) winners.push({ week: w, ...winner });
                 }
                 return winners;
             }, [players]);
-
-            // Projected Prize Calculations
-            const prizePool = useMemo(() => {
-                const playerCount = players.length;
-                if (playerCount === 0) return { first: 0, second: 0, third: 0 };
-
-                const entryFee = 40;
-                const totalCollected = playerCount * entryFee;
-                const weeklyReserve = 120; // 12 weeks * $10
-                
-                // Pot available after setting aside weekly prizes
-                const mainPot = totalCollected - weeklyReserve;
-
-                // Safety check if pot is too small (unlikely with entry fee, but good practice)
-                if (mainPot < 0) return { first: 0, second: 0, third: 0 };
-
-                const thirdPlacePrize = 40; // Money back
-                const remainingForTop2 = mainPot - thirdPlacePrize;
-
-                // If not enough for top 2 splits
-                if (remainingForTop2 <= 0) {
-                     return { first: 0, second: 0, third: Math.max(0, mainPot) };
-                }
-
-                const secondPlacePrize = remainingForTop2 * 0.25;
-                const firstPlacePrize = remainingForTop2 * 0.75;
-
-                return {
-                    first: firstPlacePrize,
-                    second: secondPlacePrize,
-                    third: thirdPlacePrize
-                };
-            }, [players.length]);
-
-            const formatMoney = (amount) => {
-                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
-            };
 
             // Handlers
             const handleAddPlayer = async (e) => {
@@ -281,18 +236,7 @@
             const handleUpdateWeight = async (playerId, week, value) => {
                 if (!user) return;
                 const playerRef = doc(db, 'artifacts', artifactId, 'public', 'data', 'players', playerId);
-                
-                // Handle 'X' or number
-                let weightVal = value;
-                if (value === '' || value === null) {
-                    weightVal = null;
-                } else if (value.trim().toUpperCase() === 'X') {
-                    weightVal = 'X';
-                } else {
-                    const parsed = parseFloat(value);
-                    weightVal = isNaN(parsed) ? value : parsed; // Store number if valid, else string (likely X typo or intentional)
-                }
-
+                const weightVal = value === '' ? null : parseFloat(value);
                 try {
                     await updateDoc(playerRef, { [`weeklyWeights.${week}`]: weightVal });
                 } catch (err) { console.error("Update error:", err); }
@@ -310,21 +254,16 @@
                 e.preventDefault();
                 if (adminPassInput === ADMIN_PASSWORD) {
                     setIsAdmin(true);
-                    localStorage.setItem('biggest_loser_admin', 'true'); // Persist Login
                 } else {
+                    setIsAdmin(false);
                     const errorMsg = document.getElementById('login-error');
                     if (errorMsg) errorMsg.classList.remove('hidden');
                 }
             };
 
-            const handleLogout = () => {
-                setIsAdmin(false);
-                localStorage.removeItem('biggest_loser_admin'); // Clear Persistence
-            };
-
             const TabButton = ({ id, label, icon: Icon }) => (
                 <button
-                    onClick={() => setActiveTab(id)} 
+                    onClick={() => { setActiveTab(id); if(id !== 'admin') setIsAdmin(false); }}
                     className={`flex flex-1 flex-col items-center py-3 px-2 transition-all ${
                         activeTab === id 
                         ? 'text-white border-t-4 border-yellow-400 bg-opacity-10 bg-white' 
@@ -381,29 +320,12 @@
                                                             {index + 1}
                                                         </div>
                                                         <div className="flex-1">
-                                                            <div className="flex items-center gap-2">
-                                                                <p className="font-black uppercase text-xl leading-tight tracking-tight">{player.name}</p>
-                                                                {/* Prize Badges */}
-                                                                {index === 0 && (
-                                                                    <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded border border-green-500/30">
-                                                                        {formatMoney(prizePool.first)}
-                                                                    </span>
-                                                                )}
-                                                                {index === 1 && (
-                                                                    <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded border border-green-500/30">
-                                                                        {formatMoney(prizePool.second)}
-                                                                    </span>
-                                                                )}
-                                                                {index === 2 && (
-                                                                    <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded border border-green-500/30">
-                                                                        {formatMoney(prizePool.third)}
-                                                                    </span>
-                                                                )}
-                                                            </div>
+                                                            <p className="font-black uppercase text-xl leading-tight tracking-tight">{player.name}</p>
                                                         </div>
                                                         <div className="text-right">
                                                             <div className="text-2xl font-black text-yellow-400 tabular-nums">
-                                                                {player.stats.totalPctLost.toFixed(2)}%
+                                                                {/* CHANGED: This will now show the negative sign */}
+                                                                {player.stats.totalPctChange.toFixed(2)}%
                                                             </div>
                                                             <div className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">
                                                                 PROGRESS
@@ -425,9 +347,6 @@
                                                 <h2 className="font-black uppercase tracking-tight flex items-center gap-2">
                                                     <Medal size={18} className="text-yellow-400" /> Weekly Achievement Board
                                                 </h2>
-                                                <p className="text-[10px] text-gray-300 mt-1 uppercase tracking-wider font-bold opacity-80 pl-6">
-                                                    Weekly winner wins $10 (Paid at end of contest)
-                                                </p>
                                             </div>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5">
                                                 {weeklyWinners.length > 0 ? weeklyWinners.map((w) => (
@@ -439,7 +358,8 @@
                                                             <span className="font-black uppercase text-sm">{w.name}</span>
                                                         </div>
                                                         <div className="text-right">
-                                                            <span className="text-yellow-400 font-black text-sm">+{w.pct.toFixed(2)}%</span>
+                                                            {/* CHANGED: Shows negative sign naturally */}
+                                                            <span className="text-yellow-400 font-black text-sm">{w.pct.toFixed(2)}%</span>
                                                         </div>
                                                     </div>
                                                 )) : (
@@ -474,13 +394,6 @@
                                             </div>
                                         ) : (
                                             <div className="space-y-8">
-                                                <div className="flex justify-between items-center px-1">
-                                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Admin Dashboard</span>
-                                                    <button onClick={handleLogout} className="flex items-center gap-1 text-[10px] font-bold text-red-400 hover:text-white hover:bg-red-500/20 px-3 py-1.5 rounded transition-all uppercase border border-red-500/20">
-                                                        <LogOut size={12} /> Logout
-                                                    </button>
-                                                </div>
-
                                                 <section className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 shadow-xl">
                                                     <h3 className="text-sm font-black uppercase text-gray-400 mb-4 tracking-widest flex items-center gap-2">
                                                         <Plus size={16} className="text-yellow-400" /> New Participant
@@ -518,10 +431,14 @@
                                                                         </td>
                                                                         {[...Array(12)].map((_, i) => (
                                                                             <td key={i} className="p-2 text-center">
+                                                                                {/* CHANGED: Replaced controlled onChange with defaultValue + onBlur. 
+                                                                                    This prevents the decimal point from disappearing while typing. */}
                                                                                 <input 
-                                                                                    type="text"
-                                                                                    value={p.weeklyWeights?.[i + 1] ?? ''}
-                                                                                    onChange={(e) => handleUpdateWeight(p.id, i + 1, e.target.value)}
+                                                                                    type="number"
+                                                                                    step="0.1"
+                                                                                    key={`${p.id}-${i}-${p.weeklyWeights?.[i+1] || ''}`}
+                                                                                    defaultValue={p.weeklyWeights?.[i + 1] ?? ''}
+                                                                                    onBlur={(e) => handleUpdateWeight(p.id, i + 1, e.target.value)}
                                                                                     className="w-14 bg-black/30 border border-white/5 rounded p-2 text-xs text-center font-bold text-yellow-400 focus:ring-1 ring-purple-500 outline-none"
                                                                                 />
                                                                             </td>
